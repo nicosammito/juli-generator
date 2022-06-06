@@ -10,11 +10,17 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
+                  rel="stylesheet"/>
             <NavBar/>
             <Container>
                 <h1>Das JuLi Social Media Tool</h1>
-                <p>Du möchtest die digitale Verbandsarbeit aufs neue Level heben? Mit diesem Social Media Tool kannst du
-                    deine Inhalte mit dem neuen JuLi Design verbinden und Akzente setzten, egal ob Instagram Story /
+                <p>Du möchtest die digitale Verbandsarbeit aufs neue Level heben? Mit diesem Social Media
+                    Tool kannst du
+                    deine Inhalte mit dem neuen JuLi Design verbinden und Akzente setzten, egal ob Instagram
+                    Story /
                     Beitrag oder Facebook Banner hier findest du alles.</p>
 
                 <Row className="tool">
@@ -25,9 +31,11 @@ const Tool: NextPage = () => {
                     </Col>
                     <Col xxl={6} style={{padding: 0}}>
                         <div className="tool-menu" id="tool-menu">
-                            <div className="tool-item active" id="size" onClick={onToolMenuClick}>1. Größe</div>
+                            <div className="tool-item active" id="size" onClick={onToolMenuClick}>1. Größe
+                            </div>
                             <div className="tool-item" id="design" onClick={onToolMenuClick}>2. Design</div>
-                            <div className="tool-item" id="templates" onClick={onToolMenuClick}>3. Format</div>
+                            <div className="tool-item" id="templates" onClick={onToolMenuClick}>3. Format
+                            </div>
                             <div className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</div>
                             <div className="tool-item" id="inhalt" onClick={downloadImage}>5. Download</div>
                         </div>
@@ -37,7 +45,8 @@ const Tool: NextPage = () => {
                                     möchtest.</p>
                                 <Row>
                                     <Col lg={3}>
-                                        <div className="size" onClick={() => changeState["size"]("instagram-post")}>
+                                        <div className="size"
+                                             onClick={() => changeState["size"]("instagram-post")}>
                                             <div className="icon">
                                                 <IconBrandInstagram size={32}/>
                                             </div>
@@ -45,7 +54,8 @@ const Tool: NextPage = () => {
                                         </div>
                                     </Col>
                                     <Col lg={3}>
-                                        <div className="size" onClick={() => changeState["size"]("instagram-story")}>
+                                        <div className="size"
+                                             onClick={() => changeState["size"]("instagram-story")}>
                                             <div className="icon">
                                                 <IconBrandInstagram size={32}/>
                                             </div>
@@ -53,7 +63,8 @@ const Tool: NextPage = () => {
                                         </div>
                                     </Col>
                                     <Col lg={3}>
-                                        <div className="size" onClick={() => changeState["size"]("facebook-banner")}>
+                                        <div className="size"
+                                             onClick={() => changeState["size"]("facebook-banner")}>
                                             <div className="icon">
                                                 <IconBrandFacebook size={32}/>
                                             </div>
@@ -119,7 +130,8 @@ const Tool: NextPage = () => {
                                 </Row>
                             </div>
                             <div className="tool-selection" id="templates">
-                                <p>Wähle hier dein Ausrichtung der Texte und das gewünschte Format.<br/><br/></p>
+                                <p>Wähle hier dein Ausrichtung der Texte und das gewünschte
+                                    Format.<br/><br/></p>
                                 <p>Vorgefertigte Templates</p>
                                 <Row>
                                     <Col lg={3}>
@@ -231,35 +243,40 @@ const Tool: NextPage = () => {
                                 }}
                                           placeholder={"__JULI SOCIAL MEDIA TOOL__                                                                                                                                                                                         DU BENÖTIGST HILFE? DANN SCHREIB MIR EINE DM UNTER @NICO_SAMMITO"}/>
                                 <p><br/><br/>Verband</p>
-                                <input className={"form-control"} style={{fontSize: ".75rem"}} onKeyPress={(event) => {
-                                    changeState["association"](event.currentTarget.value)
-                                }} onKeyDown={(event) => {
+                                <input className={"form-control"} style={{fontSize: ".75rem"}}
+                                       onKeyPress={(event) => {
+                                           changeState["association"](event.currentTarget.value)
+                                       }} onKeyDown={(event) => {
                                     changeState["association"](event.currentTarget.value)
                                 }} onKeyUp={(event) => {
                                     changeState["association"](event.currentTarget.value)
                                 }} placeholder={"KV Mettmann"}/>
                                 <p><br/><br/>Quelle</p>
-                                <input className={"form-control"} style={{fontSize: ".75rem"}} onKeyPress={(event) => {
-                                    changeState["source"](event.currentTarget.value)
-                                }} onKeyDown={(event) => {
+                                <input className={"form-control"} style={{fontSize: ".75rem"}}
+                                       onKeyPress={(event) => {
+                                           changeState["source"](event.currentTarget.value)
+                                       }} onKeyDown={(event) => {
                                     changeState["source"](event.currentTarget.value)
                                 }} onKeyUp={(event) => {
                                     changeState["source"](event.currentTarget.value)
                                 }} placeholder={"Quelle"}/>
 
                                 <p><br/><br/>Farbiger Text (Größe)</p>
-                                <input type="range" className="form-range" min={20} max={100} onChange={event => {
-                                    console.log(event.currentTarget.value)
-                                    changeState["fontSizeHeadline"](Number(event.currentTarget.value))
-                                }}/>
+                                <input type="range" className="form-range" min={20} max={100}
+                                       onChange={event => {
+                                           console.log(event.currentTarget.value)
+                                           changeState["fontSizeHeadline"](Number(event.currentTarget.value))
+                                       }}/>
 
                                 <p><br/><br/>Normaler Text (Größe)</p>
-                                <input type="range" className="form-range" min={20} max={100} onChange={event => {
-                                    console.log(event.currentTarget.value)
-                                    changeState["fontSizeDescription"](Number(event.currentTarget.value))
-                                }}/>
+                                <input type="range" className="form-range" min={20} max={100}
+                                       onChange={event => {
+                                           console.log(event.currentTarget.value)
+                                           changeState["fontSizeDescription"](Number(event.currentTarget.value))
+                                       }}/>
                                 <p><br/><br/>Hintergrundbild</p>
-                                <input type="file" id="background" name="background" accept="image/png, image/jpeg"
+                                <input type="file" id="background" name="background"
+                                       accept="image/png, image/jpeg"
                                        onChange={(event) => {
                                            // @ts-ignore
                                            const output = URL.createObjectURL(event.target.files[0]);

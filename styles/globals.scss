@@ -22,7 +22,6 @@ $themes: (
         'yellow-blue-btw': ("color1": $yellow, "color2": $blue, 'style': 'btw'),
 );
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 @import "navbar";
 @import "tool";
 @import "./generator/generator";
