@@ -1,5 +1,5 @@
 import type {NextPage} from 'next'
-import {Col, Container, Form, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import NavBar from "../components/Navigation";
 import {IconBrandFacebook, IconBrandInstagram} from "@tabler/icons";
 import Generator from "../components/Generator";
@@ -10,9 +10,6 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
-                  as="font" type="font/woff2"/>
             <NavBar/>
             <Container>
                 <h1>Das JuLi Social Media Tool</h1>
@@ -296,16 +293,21 @@ const downloadImage = () => {
     // @ts-ignore
     const generator: HTMLElement = document.getElementById('generator');
 
-    const generatorTransform = generator.style.transform;
-    generator.style.transform = "scale(1)";
-    htmlToImage.toCanvas(generator).then((canvas) => {
-        generator.style.transform = generatorTransform;
 
-        var link = document.createElement('a');
-        link.download = 'my-image-name.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    })
+    htmlToImage.toCanvas(generator).then((canvas) => {
+        htmlToImage.toCanvas(generator).then((canvas) => {
+            const generatorTransform = generator.style.transform;
+            generator.style.transform = "scale(1)";
+            htmlToImage.toCanvas(generator).then((canvas) => {
+                generator.style.transform = generatorTransform;
+
+                var link = document.createElement('a');
+                link.download = 'my-image-name.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            })
+        });
+    });
 
 };
 
