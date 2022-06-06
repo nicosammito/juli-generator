@@ -10,6 +10,7 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"/>
             <NavBar/>
             <Container>
                 <h1>Das JuLi Social Media Tool</h1>

@@ -27,15 +27,7 @@ $themes: (
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url("https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/Montserrat-Black.ttf") format('ttf');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: italic;
-  font-weight: 900;
-  font-display: swap;
-  src: url("https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/Montserrat-BlackItalic.ttf") format('ttf');
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCvC73w5aXx-p7K4KLg.woff) format('woff');
 }
 
 @import "navbar";
