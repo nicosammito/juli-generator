@@ -9,9 +9,9 @@ const Generator = (props: { getStateFunction: Function}) => {
     const [content, setContent] = useState(["__JULI Social Media Tool__", "Du benötigst Hilfe? Dann schreib mir eine DM unter @nico_sammito"])
     const [fontSizeHeadline, setFontSizeHeadline] = useState(60);
     const [fontSizeDescription, setFontSizeDescription] = useState(30);
-    const [association, setAssociation] = useState("Verband");
+    const [association, setAssociation] = useState("");
     const [source, setSource] = useState("");
-    const [background, setBackground] = useState("https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/77208332_2555833491170848_7632607706234224640_o-1.jpg");
+    const [background, setBackground] = useState("");
 
 
     props.getStateFunction({
@@ -42,7 +42,7 @@ const Generator = (props: { getStateFunction: Function}) => {
                 }
             </div>
         </div>
-        <img src={"https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/julis_white.svg"} className={"julilogo"}/>
+        {association != "" ? <img src={"https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/julis_white.svg"} className={"julilogo"} alt={"Junge Liberale Logo"}/> : null}
         <span className={"verband"}>{association}</span>
         <span className={"quelle"}>{source}</span>
     </div>;

@@ -12,12 +12,10 @@ const Tool: NextPage = () => {
         <>
             <NavBar/>
             <Container>
-                <h1>Das JuLi Social Media Tool</h1>
-                <p>Du möchtest die digitale Verbandsarbeit aufs neue Level heben? Mit diesem Social Media
-                    Tool kannst du
-                    deine Inhalte mit dem neuen JuLi Design verbinden und Akzente setzten, egal ob Instagram
-                    Story /
-                    Beitrag oder Facebook Banner hier findest du alles.</p>
+                <h1>Das JuLi Social Media Tool Made by Nico Sammito</h1>
+                <p>Du möchtest die digitale Verbandsarbeit besser gestalten? Dann ist dieses Tool genau das richtige für
+                    dich. Gestalte Kacheln, Storys und vieles mehr und verbessere so den Internetauftritt deines
+                    Verbandes.</p>
 
                 <Row className="tool">
                     <Col xxl={6} style={{padding: 0}}>
@@ -37,8 +35,7 @@ const Tool: NextPage = () => {
                         </div>
                         <div className="tool-selections" id="tool-selections">
                             <div className="tool-selection show" id="size">
-                                <p>Wähle hier die größe und Platform aus, auf der du einen Beitrag erstellen
-                                    möchtest.</p>
+                                <p>Wähle hier die größe und die Platform aus, auf der du deinen Beitrag veröffentlichen möchtest.</p>
                                 <Row>
                                     <Col lg={3}>
                                         <div className="size"
@@ -70,8 +67,7 @@ const Tool: NextPage = () => {
                                 </Row>
                             </div>
                             <div className="tool-selection" id="design">
-                                <p>Wähle hier die größe und Platform aus, auf der du einen Beitrag erstellen
-                                    möchtest.<br/><br/></p>
+                                <p>Wähle hier das passende Design zu deinem Beitrag aus.<br/><br/></p>
                                 <p>Bundestagswahl Design 2021</p>
                                 <Row>
                                     <Col lg={3}>
@@ -91,7 +87,7 @@ const Tool: NextPage = () => {
                                     <Col lg={3}>
                                         <div className="design"
                                              onClick={() => changeState["design"]("blue-yellow-btw")}>
-                                            <div className="theme yellow-blue-btw"/>
+                                            <div className="theme blue-yellow-btw"/>
                                             <p>Blau-Gelb Theme</p>
                                         </div>
                                     </Col>
@@ -126,8 +122,7 @@ const Tool: NextPage = () => {
                                 </Row>
                             </div>
                             <div className="tool-selection" id="templates">
-                                <p>Wähle hier dein Ausrichtung der Texte und das gewünschte
-                                    Format.<br/><br/></p>
+                                <p>Wähle hier die Ausrichtung / Format des Inhaltes aus.<br/><br/></p>
                                 <p>Vorgefertigte Templates</p>
                                 <Row>
                                     <Col lg={3}>
@@ -294,15 +289,14 @@ const downloadImage = () => {
     const generator: HTMLElement = document.getElementById('generator');
 
 
-    htmlToImage.toCanvas(generator).then((canvas) => {
-        htmlToImage.toCanvas(generator).then((canvas) => {
+    htmlToImage.toPng(generator).then(() => {
+        htmlToImage.toPng(generator).then(() => {
             const generatorTransform = generator.style.transform;
             generator.style.transform = "scale(1)";
-            htmlToImage.toCanvas(generator).then((canvas) => {
+            htmlToImage.toCanvas(generator, {height: Number(generator.style.height), width: Number(generator.style.width)}).then((canvas) => {
                 generator.style.transform = generatorTransform;
-
                 var link = document.createElement('a');
-                link.download = 'my-image-name.png';
+                link.download = 'jungeliberale.png';
                 link.href = canvas.toDataURL();
                 link.click();
             })

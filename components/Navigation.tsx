@@ -12,9 +12,8 @@ const NavBar = () => {
                 <Nav className="me-auto">
                 </Nav>
                 <Nav>
-                    <Nav.Link eventKey={2}>Du brauchst hilfe?</Nav.Link>
-                    <Nav.Link eventKey={2}> <IconBrandInstagram/></Nav.Link>
-                    <Nav.Link eventKey={2}> <IconBrandTwitter/></Nav.Link>
+                    <Nav.Link href={"https://www.instagram.com/nico_sammito/"} eventKey={2}>Du brauchst hilfe?</Nav.Link>
+                    <Nav.Link href={"https://www.instagram.com/nico_sammito/"} eventKey={2}> <IconBrandInstagram/></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Container>
