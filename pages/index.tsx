@@ -10,7 +10,9 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"/>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
+                  as="font" type="font/woff2"/>
             <NavBar/>
             <Container>
                 <h1>Das JuLi Social Media Tool</h1>
@@ -294,20 +296,15 @@ const downloadImage = () => {
     // @ts-ignore
     const generator: HTMLElement = document.getElementById('generator');
 
-    htmlToImage.toPng(generator, {quality: 0.1}).then(() => {
+    const generatorTransform = generator.style.transform;
+    generator.style.transform = "scale(1)";
+    htmlToImage.toCanvas(generator).then((canvas) => {
+        generator.style.transform = generatorTransform;
 
-        htmlToImage.toPng(generator, {quality: 0.1}).then(() => {
-
-            const generatorTransform = generator.style.transform;
-            generator.style.transform = "scale(1)";
-            htmlToImage.toPng(generator).then(function (dataUrl) {
-                var link = document.createElement('a');
-                link.download = 'my-image-name.png';
-                link.href = dataUrl;
-                link.click();
-                generator.style.transform = generatorTransform;
-            })
-        })
+        var link = document.createElement('a');
+        link.download = 'my-image-name.png';
+        link.href = canvas.toDataURL();
+        link.click();
     })
 
 };
