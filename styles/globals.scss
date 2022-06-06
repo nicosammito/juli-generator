@@ -1,0 +1,81 @@
+//colors
+$blue: #009ee3;
+$yellow: #ffed00;
+$purple:#E5007D;
+$white: #ffffff;
+$black: #000000;
+$transparent: rgba(#E5007D, 0);
+
+$sizes: (
+        "instagram-post": ("width": 1080px, "height": 1080px, "ratio": 2),
+        "instagram-story": ("width": 1080px, "height": 1920px, "ratio": 3),
+        "facebook-banner": ("width": 2050px, "height": 780px, "ratio": 3.5),
+        "twitter-banner": ("width": 1500px, "height": 500px, "ratio": 3.3)
+);
+$themes: (
+        'purple-blue-btw': ("color1": $purple, "color2": $blue, 'style': 'btw'),
+        'purple-yellow-btw': ("color1": $yellow, "color2": $purple, 'style': 'btw'),
+        'blue-yellow-btw': ("color1": $blue, "color2": $yellow, 'style': 'btw'),
+        'black-black-btw': ("color1": $black, "color2": $black, 'style': 'btw'),
+        'blue-purple-btw': ("color1": $blue, "color2": $purple, 'style': 'btw'),
+        'yellow-purple-btw': ("color1": $purple, "color2": $yellow, 'style': 'btw'),
+        'yellow-blue-btw': ("color1": $yellow, "color2": $blue, 'style': 'btw'),
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import "navbar";
+@import "tool";
+@import "./generator/generator";
+
+
+html,
+body {
+  background: $white;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 1rem 1rem 0;
+  display: inline-block;
+  position: relative;
+  height: fit-content;
+  color: $purple;
+
+  &.blue {
+    color: $blue;
+  }
+
+  &.yellow {
+    color: $yellow;
+  }
+
+  &.black {
+    color: $black;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  text-transform: uppercase;
+  font-size: .75rem;
+  color: $black;
+  margin: 0;
+}
+

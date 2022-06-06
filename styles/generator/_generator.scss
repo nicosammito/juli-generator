@@ -1,0 +1,26 @@
+@import "size";
+@import "design";
+@import "wrapper";
+
+
+.generator {
+  display: block;
+  z-index: 10;
+  overflow: hidden;
+  position: relative;
+
+  @each $sizename, $size in $sizes {
+    &.#{$sizename} {
+      @include imageSize(map-get($size, "width"), map-get($size, "height"), map-get($size, "ratio"));
+
+      @each $themename, $theme in $themes {
+        &.#{$themename} {
+          @if (map-get($theme, "style") == "btw") {
+            @include designBTW(map-get($theme, "color1"), map-get($theme, "color2"), map-get($size, "width"), map-get($size, "height"))
+          }
+        }
+      }
+    }
+  }
+
+}

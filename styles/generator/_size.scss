@@ -1,0 +1,11 @@
+
+@mixin imageSize($width, $height, $ration) {
+  margin-bottom: (-$height + ($height/$ration));
+  transform: scale(1/$ration);
+  transform-origin: 0 0;
+  width: $width;
+  height: $height;
+  position: relative;
+}
+
+// 100vw - 10px / 1080px
