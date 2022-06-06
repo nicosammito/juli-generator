@@ -31,7 +31,7 @@ const Tool: NextPage = () => {
                             <div className="tool-item" id="templates" onClick={onToolMenuClick}>3. Format
                             </div>
                             <div className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</div>
-                            <div className="tool-item" id="inhalt" onClick={downloadImage}>5. Download</div>
+                            <div className="tool-item" id="download" onClick={downloadImage}>5. Download</div>
                         </div>
                         <div className="tool-selections" id="tool-selections">
                             <div className="tool-selection show" id="size">
@@ -287,19 +287,25 @@ const downloadImage = () => {
 
     // @ts-ignore
     const generator: HTMLElement = document.getElementById('generator');
+    // @ts-ignore
+    const downloadButton: HTMLElement = document.getElementById("download");
+    const downloadButtonContent = downloadButton.textContent;
 
-
-    htmlToImage.toPng(generator).then(() => {
-        htmlToImage.toPng(generator).then(() => {
-            const generatorTransform = generator.style.transform;
-            generator.style.transform = "scale(1)";
-            htmlToImage.toCanvas(generator, {height: Number(generator.style.height), width: Number(generator.style.width)}).then((canvas) => {
-                generator.style.transform = generatorTransform;
-                var link = document.createElement('a');
-                link.download = 'jungeliberale.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            })
+    downloadButton.textContent = "Bild wird generiert..."
+    htmlToImage.toJpeg(generator).then(() => {
+        htmlToImage.toJpeg(generator).then(() => {
+            htmlToImage.toJpeg(generator).then(() => {
+                const generatorTransform = generator.style.transform;
+                generator.style.transform = "scale(1)";
+                htmlToImage.toJpeg(generator).then((data) => {
+                    generator.style.transform = generatorTransform;
+                    var link = document.createElement('a');
+                    link.download = 'jungeliberale.jpeg';
+                    link.href = data
+                    link.click();
+                    downloadButton.textContent = downloadButtonContent;
+                })
+            });
         });
     });
 
