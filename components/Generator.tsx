@@ -1,6 +1,6 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const Generator = (props: { getStateFunction: Function}) => {
+const Generator = (props: { getStateFunction: Function }) => {
 
 
     const [type, setType] = useState("instagram-post");
@@ -26,7 +26,32 @@ const Generator = (props: { getStateFunction: Function}) => {
         "background": setBackground
     });
 
-    return <div id={"generator"} className={"generator " + type+ " " + design} style={{backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundImage: "url("+ background +")"}}>
+    useEffect(() => {
+
+        const resizeGenerator = () => {
+            const div = document.getElementById("generator");
+            const col = document.getElementById("col-generator");
+
+            // @ts-ignore
+            const scaleWidth = (col.offsetWidth - 20) / div.offsetWidth;
+            // @ts-ignore
+            const scaleHeight = (col.offsetHeight - 20) / div.offsetHeight;
+
+            if (scaleHeight <= scaleWidth) { // @ts-ignore
+                div.style.transform = "scale("+ scaleHeight +")"
+            }
+            else { // @ts-ignore
+                div.style.transform = "scale("+ scaleWidth +")"
+            }
+        }
+
+        resizeGenerator();
+
+        window.addEventListener("resize", resizeGenerator);
+    })
+
+    return <div id={"generator"} className={"generator " + type + " " + design}>
+        <img src={background} className={"background-img"}/>
         <div className={template}>
             <div className="design-wrapper">
 
@@ -34,7 +59,8 @@ const Generator = (props: { getStateFunction: Function}) => {
                     content.map((line, index) => {
 
                         if (line.startsWith("__") && line.endsWith("__")) {
-                            return <><span style={{fontSize: fontSizeHeadline}} key={line.substring(2, line.length-2)} className="heading">{line.substring(2, line.length-2)}</span><br/></>
+                            return <><span style={{fontSize: fontSizeHeadline}} key={line.substring(2, line.length - 2)}
+                                           className="heading">{line.substring(2, line.length - 2)}</span><br/></>
                         } else {
                             return <><span style={{fontSize: fontSizeDescription}} className="description">{line}</span><br/></>
                         }
@@ -42,7 +68,9 @@ const Generator = (props: { getStateFunction: Function}) => {
                 }
             </div>
         </div>
-        {association != "" ? <img src={"https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/julis_white.svg"} className={"julilogo"} alt={"Junge Liberale Logo"}/> : null}
+        {association != "" ?
+            <img src={"https://cdn.statically.io/gh/nicosammito/juli-generator/gh-pages/julis_white.svg"}
+                 className={"julilogo"} alt={"Junge Liberale Logo"}/> : null}
         <span className={"verband"}>{association}</span>
         <span className={"quelle"}>{source}</span>
     </div>;

@@ -22,8 +22,6 @@ $themes: (
         'yellow-blue-btw': ("color1": $yellow, "color2": $blue, 'style': 'btw'),
 );
 
-
-@import "navbar";
 @import "tool";
 @import "./generator/generator";
 

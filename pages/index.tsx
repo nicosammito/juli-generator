@@ -1,6 +1,5 @@
 import type {NextPage} from 'next'
 import {Col, Container, Row} from "react-bootstrap";
-import NavBar from "../components/Navigation";
 import {IconBrandFacebook, IconBrandInstagram} from "@tabler/icons";
 import Generator from "../components/Generator";
 import * as htmlToImage from 'html-to-image';
@@ -10,29 +9,28 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
-            <NavBar/>
-            <Container>
+            <Container style={{position: "relative"}}>
                 <h1>Das JuLi Social Media Tool Made by Nico Sammito</h1>
                 <p>Du möchtest die digitale Verbandsarbeit besser gestalten? Dann ist dieses Tool genau das richtige für
                     dich. Gestalte Kacheln, Storys und vieles mehr und verbessere so den Internetauftritt deines
                     Verbandes.</p>
 
+                <div className="tool-menu" id="tool-menu">
+                    <span className="tool-item active" id="size" onClick={onToolMenuClick}>1. Größe
+                    </span>
+                    <span className="tool-item" id="design" onClick={onToolMenuClick}>2. Design</span>
+                    <span className="tool-item" id="templates" onClick={onToolMenuClick}>3. Format
+                    </span>
+                    <span className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</span>
+                    <span className="tool-item" id="download" onClick={downloadImage}>5. Download</span>
+                </div>
                 <Row className="tool">
-                    <Col xxl={6} style={{padding: 0}}>
+                    <Col id={"col-generator"} md={6} style={{padding: 0}}>
                         <Generator getStateFunction={(pChangeState: any) => {
                             changeState = pChangeState;
                         }}/>
                     </Col>
-                    <Col xxl={6} style={{padding: 0}}>
-                        <div className="tool-menu" id="tool-menu">
-                            <div className="tool-item active" id="size" onClick={onToolMenuClick}>1. Größe
-                            </div>
-                            <div className="tool-item" id="design" onClick={onToolMenuClick}>2. Design</div>
-                            <div className="tool-item" id="templates" onClick={onToolMenuClick}>3. Format
-                            </div>
-                            <div className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</div>
-                            <div className="tool-item" id="download" onClick={downloadImage}>5. Download</div>
-                        </div>
+                    <Col md={6} style={{padding: 0}}>
                         <div className="tool-selections" id="tool-selections">
                             <div className="tool-selection show" id="size">
                                 <p>Wähle hier die größe und die Platform aus, auf der du deinen Beitrag veröffentlichen möchtest.</p>
