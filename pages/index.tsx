@@ -23,6 +23,8 @@ const Tool: NextPage = () => {
                     </span>
                     <span className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</span>
                     <span className="tool-item" id="download" onClick={downloadImage}>5. Download</span>
+                    <span className="tool-item" id="download"><a href={"https://www.instagram.com/nico_sammito/"}>Du benötigtst Hilfe?</a></span>
+                    <span className="tool-item" id="download"><a href={"https://www.instagram.com/nico_sammito/"}><IconBrandInstagram size={16}/>Mein Instagram</a></span>
                 </div>
                 <Row className="tool">
                     <Col id={"col-generator"} md={6} style={{padding: 0}}>
