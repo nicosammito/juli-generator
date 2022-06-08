@@ -109,19 +109,5 @@
     background: linear-gradient(0deg, $firstThemeColor 0%, $secondThemeColor 100%);
   }
 
-  &:after {
-    z-index: 1;
-    content: "";
-    width: $width;
-    height: $height;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 50%;
-    mix-blend-mode: soft-light;
-    background: -moz-linear-gradient(0deg, $firstThemeColor 0%, $secondThemeColor 100%);
-    background: -webkit-linear-gradient(0deg, $firstThemeColor 0%, $secondThemeColor 100%);
-    background: linear-gradient(0deg, $firstThemeColor 0%, $secondThemeColor 100%);
-  }
 
 }
