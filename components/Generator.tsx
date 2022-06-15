@@ -60,7 +60,7 @@ const Generator = (props: { getStateFunction: Function }) => {
 
                         if (line.startsWith("__") && line.endsWith("__")) {
                             return <><span style={{fontSize: fontSizeHeadline}} key={line.substring(2, line.length - 2)}
-                                           className="heading">{line.substring(2, line.length - 2)}</span><br/></>
+                                           className={(index % 2) == 0 ? "heading" : "heading important"}>{line.substring(2, line.length - 2)}</span><br/></>
                         } else {
                             return <><span style={{fontSize: fontSizeDescription}} className="description">{line}</span><br/></>
                         }

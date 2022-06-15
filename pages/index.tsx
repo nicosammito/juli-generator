@@ -292,15 +292,15 @@ const downloadImage = () => {
     const downloadButtonContent = downloadButton.textContent;
 
     downloadButton.textContent = "Bild wird generiert..."
-    htmlToImage.toJpeg(generator).then(() => {
-        htmlToImage.toJpeg(generator).then(() => {
-            htmlToImage.toJpeg(generator).then(() => {
+    htmlToImage.toJpeg(generator, {pixelRatio: 0.1}).then(() => {
+        htmlToImage.toJpeg(generator, {pixelRatio: 0.1}).then(() => {
+            htmlToImage.toJpeg(generator, {pixelRatio: 0.1}).then(() => {
                 const generatorTransform = generator.style.transform;
                 generator.style.transform = "scale(1)";
-                htmlToImage.toJpeg(generator).then((data) => {
+                htmlToImage.toJpeg(generator, {pixelRatio: 1}).then((data) => {
                     generator.style.transform = generatorTransform;
-                    var link = document.createElement('a');
-                    link.download = 'jungeliberale.jpeg';
+                    const link = document.createElement('a');
+                    link.download = 'jungeliberale.jpg';
                     link.href = data
                     link.click();
                     downloadButton.textContent = downloadButtonContent;
