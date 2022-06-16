@@ -4,7 +4,7 @@ $yellow: #ffed00;
 $purple:#E5007D;
 $white: #ffffff;
 $black: #000000;
-$transparent: rgba(#E5007D, 0);
+$transparent-white: rgba($white, 0);
 
 $sizes: (
         "instagram-post": ("width": 1080px, "height": 1080px, "ratio": 2),
@@ -20,6 +20,7 @@ $themes: (
         'blue-purple-btw': ("color1": $blue, "color2": $purple, 'style': 'btw'),
         'yellow-purple-btw': ("color1": $purple, "color2": $yellow, 'style': 'btw'),
         'yellow-blue-btw': ("color1": $yellow, "color2": $blue, 'style': 'btw'),
+        'transparent-white-btw': ("color1": $transparent-white, "color2": $transparent-white, 'style': 'btw')
 );
 
 @import "tool";

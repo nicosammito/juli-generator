@@ -9,6 +9,10 @@ let changeState: { "size": Function, "design": Function, "template": Function, "
 const Tool: NextPage = () => {
     return (
         <>
+            <head>
+                <title>Junge Liberale Kachel Generator</title>
+
+            </head>
             <Container style={{position: "relative"}}>
                 <h1>Das JuLi Social Media Tool Made by Nico Sammito</h1>
                 <p>Du möchtest die digitale Verbandsarbeit besser gestalten? Dann ist dieses Tool genau das richtige für
@@ -24,7 +28,9 @@ const Tool: NextPage = () => {
                     <span className="tool-item" id="inhalt" onClick={onToolMenuClick}>4. Inhalt</span>
                     <span className="tool-item" id="download" onClick={downloadImage}>5. Download</span>
                     <span className="tool-item" id="download"><a href={"https://www.instagram.com/nico_sammito/"}>Du benötigtst Hilfe?</a></span>
-                    <span className="tool-item" id="download"><a href={"https://www.instagram.com/nico_sammito/"}><IconBrandInstagram size={16}/>Mein Instagram</a></span>
+                    <span className="tool-item" id="download"><a
+                        href={"https://www.instagram.com/nico_sammito/"}><IconBrandInstagram
+                        size={16}/>Mein Instagram</a></span>
                 </div>
                 <Row className="tool">
                     <Col id={"col-generator"} md={6} style={{padding: 0}}>
@@ -35,7 +41,8 @@ const Tool: NextPage = () => {
                     <Col md={6} style={{padding: 0}}>
                         <div className="tool-selections" id="tool-selections">
                             <div className="tool-selection show" id="size">
-                                <p>Wähle hier die größe und die Platform aus, auf der du deinen Beitrag veröffentlichen möchtest.</p>
+                                <p>Wähle hier die größe und die Platform aus, auf der du deinen Beitrag veröffentlichen
+                                    möchtest.</p>
                                 <Row>
                                     <Col lg={3}>
                                         <div className="size"
@@ -117,6 +124,16 @@ const Tool: NextPage = () => {
                                              onClick={() => changeState["design"]("yellow-blue-btw")}>
                                             <div className="theme yellow-blue-btw"/>
                                             <p>Gelb-Blau Theme</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <p><br/>JuLi Design 2020</p>
+                                <Row>
+                                    <Col lg={3}>
+                                        <div className="design"
+                                             onClick={() => changeState["design"]("transparent-white-btw")}>
+                                            <div className="theme transparent-white-btw"/>
+                                            <p>Transparentes Theme</p>
                                         </div>
                                     </Col>
                                 </Row>
